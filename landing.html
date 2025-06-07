@@ -1,0 +1,2476 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>alaganao - Showcase Digital Acadêmico</title>
+    <meta
+      name="description"
+      content="Plataforma colaborativa para monitoramento e prevenção de enchentes"
+    />
+    <meta name="theme-color" content="#2563eb" />
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/animations.css" />
+    <link rel="stylesheet" href="styles/components.css" />
+    <link rel="stylesheet" href="styles/hero.css" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+
+    <!-- Configuração do Tailwind -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            animation: {
+              float: "float 6s ease-in-out infinite",
+              "fade-in-up": "fadeInUp 0.8s ease-out forwards",
+              "slide-in-left": "slideInLeft 0.8s ease-out forwards",
+              "slide-in-right": "slideInRight 0.8s ease-out forwards",
+              "scale-in": "scaleIn 0.6s ease-out forwards",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Barra de progresso de leitura -->
+    <div class="reading-progress"></div>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <div class="flex items-center space-x-2">
+            <div
+              class="h-8 w-8 bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg flex items-center justify-center"
+            >
+              <i data-lucide="droplets" class="h-5 w-5 text-white"></i>
+            </div>
+            <span class="text-xl font-bold text-gray-900">alaganao</span>
+          </div>
+
+          <!-- Navigation Desktop -->
+          <nav class="hidden md:flex items-center space-x-8">
+            <a
+              href="#inicio"
+              class="nav-link text-gray-700 hover:text-blue-600 transition-colors font-medium"
+              >Início</a
+            >
+            <a
+              href="#funcionalidades"
+              class="nav-link text-gray-700 hover:text-blue-600 transition-colors font-medium"
+              >Funcionalidades</a
+            >
+            <a
+              href="#impacto"
+              class="nav-link text-gray-700 hover:text-blue-600 transition-colors font-medium"
+              >Impacto</a
+            >
+            <a
+              href="#diferenciais"
+              class="nav-link text-gray-700 hover:text-blue-600 transition-colors font-medium"
+              >Diferenciais</a
+            >
+          </nav>
+
+          <!-- CTA Buttons Desktop -->
+          <div class="hidden md:flex items-center space-x-4">
+            <a
+              href="https://alaganaoo.vercel.app/login"
+              class="text-gray-700 hover:text-blue-600 transition-colors"
+              >Entrar</a
+            >
+            <a
+              href="https://alaganaoo.vercel.app/register"
+              class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+              >Cadastrar</a
+            >
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-button" class="md:hidden">
+            <i data-lucide="menu" class="h-6 w-6"></i>
+          </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden border-t bg-white hidden">
+          <div class="px-2 pt-2 pb-3 space-y-1">
+            <a
+              href="#inicio"
+              class="block px-3 py-2 text-gray-700 hover:text-blue-600"
+              >Início</a
+            >
+            <a
+              href="#funcionalidades"
+              class="block px-3 py-2 text-gray-700 hover:text-blue-600"
+              >Funcionalidades</a
+            >
+            <a
+              href="#impacto"
+              class="block px-3 py-2 text-gray-700 hover:text-blue-600"
+              >Impacto</a
+            >
+            <a
+              href="#diferenciais"
+              class="block px-3 py-2 text-gray-700 hover:text-blue-600"
+              >Diferenciais</a
+            >
+            <div class="pt-4 border-t border-gray-200">
+              <a
+                href="https://alaganaoo.vercel.app/login"
+                class="block w-full text-left px-3 py-2 text-gray-700 hover:text-blue-600"
+                >Entrar</a
+              >
+              <a
+                href="https://alaganaoo.vercel.app/register"
+                class="block w-full text-left px-3 py-2 bg-blue-600 text-white rounded-lg mt-2"
+                >Cadastrar</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section - Acadêmica Moderna -->
+    <section
+      id="inicio"
+      class="relative min-h-screen bg-gradient-to-br from-white via-blue-50 to-indigo-100 overflow-hidden flex items-center"
+    >
+      <!-- Background Pattern -->
+      <div class="absolute inset-0 opacity-[0.03]">
+        <svg
+          class="w-full h-full"
+          viewBox="0 0 60 60"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <pattern
+              id="academic-grid"
+              width="60"
+              height="60"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 60 0 L 0 0 0 60"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1"
+                class="text-blue-600"
+              />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#academic-grid)" />
+        </svg>
+      </div>
+
+      <!-- Floating Geometric Elements -->
+      <div
+        class="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-full blur-xl"
+      ></div>
+      <div
+        class="absolute bottom-32 right-20 w-48 h-48 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 rounded-full blur-xl"
+      ></div>
+      <div
+        class="absolute top-1/3 right-1/4 w-24 h-24 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 rounded-full blur-xl"
+      ></div>
+
+      <!-- Main Content -->
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          <!-- Content Section -->
+          <div class="lg:col-span-7 space-y-8">
+            <!-- Academic Badge -->
+            <div
+              class="gsap-badge inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-700 text-sm font-semibold rounded-full border border-blue-200 shadow-sm opacity-0"
+            >
+              <i data-lucide="graduation-cap" class="w-4 h-4 mr-2"></i>
+              Projeto de Desenvolvimento de Software
+            </div>
+
+            <!-- Main Heading -->
+            <div class="space-y-6">
+              <h1
+                class="gsap-title text-5xl lg:text-7xl font-black text-gray-900 leading-[0.9] opacity-0"
+              >
+                <span class="gsap-title-line block">alaganao</span>
+                <span
+                  class="gsap-title-line block bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent"
+                >
+                  Inovação em
+                </span>
+                <span
+                  class="gsap-title-line block bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent"
+                >
+                  Prevenção
+                </span>
+              </h1>
+
+              <!-- Subtitle -->
+              <p
+                class="gsap-subtitle text-2xl lg:text-3xl text-gray-600 max-w-3xl leading-relaxed opacity-0 transform translate-y-5"
+              >
+                <strong class="text-blue-600">Salvando vidas</strong>
+                através de alertas inteligentes e mobilização comunitária.
+                <span class="text-emerald-600">Reduzindo prejuízos</span> e
+                <span class="text-purple-600">protegendo famílias</span> das
+                enchentes.
+              </p>
+            </div>
+
+            <!-- Feature Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-8">
+              <div
+                class="gsap-feature-card bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 opacity-0 transform translate-y-8"
+              >
+                <div
+                  class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-4"
+                >
+                  <i data-lucide="presentation" class="w-6 h-6 text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">
+                  Vidas Salvas
+                </h3>
+                <p class="text-gray-600 text-sm">
+                  Alertas preventivos que chegam até 6 horas antes das
+                  enchentes, dando tempo para evacuação e proteção das famílias.
+                </p>
+              </div>
+
+              <div
+                class="gsap-feature-card bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 opacity-0 transform translate-y-8"
+              >
+                <div
+                  class="w-12 h-12 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mb-4"
+                >
+                  <i data-lucide="code" class="w-6 h-6 text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">
+                  Prejuízos Reduzidos
+                </h3>
+                <p class="text-gray-600 text-sm">
+                  Economia de milhões em perdas materiais através de prevenção
+                  inteligente e resposta coordenada às emergências.
+                </p>
+              </div>
+
+              <div
+                class="gsap-feature-card bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 opacity-0 transform translate-y-8"
+              >
+                <div
+                  class="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4"
+                >
+                  <i data-lucide="smartphone" class="w-6 h-6 text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">
+                  Comunidades Conectadas
+                </h3>
+                <p class="text-gray-600 text-sm">
+                  Rede colaborativa que une vizinhos, voluntários e autoridades
+                  em prol da segurança coletiva.
+                </p>
+              </div>
+
+              <div
+                class="gsap-feature-card bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 opacity-0 transform translate-y-8"
+              >
+                <div
+                  class="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mb-4"
+                >
+                  <i data-lucide="video" class="w-6 h-6 text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">
+                  Resposta Rápida
+                </h3>
+                <p class="text-gray-600 text-sm">
+                  Coordenação automática de resgates e abrigos, reduzindo o
+                  tempo de resposta de horas para minutos.
+                </p>
+              </div>
+            </div>
+
+            <!-- CTAs -->
+            <div
+              class="gsap-ctas flex flex-col sm:flex-row gap-4 pt-8 opacity-0 transform translate-y-8"
+            >
+              <a
+                href="#funcionalidades"
+                class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-2xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                <i data-lucide="rocket" class="w-5 h-5 mr-2"></i>
+                Explorar Funcionalidades
+              </a>
+              <button
+                data-video-url="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                class="inline-flex items-center justify-center px-8 py-4 bg-white text-gray-900 font-bold rounded-2xl border-2 border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                <i data-lucide="play" class="w-5 h-5 mr-2 text-blue-600"></i>
+                Ver Demonstração
+              </button>
+            </div>
+          </div>
+
+          <!-- Visual Section -->
+          <div class="lg:col-span-5">
+            <div class="gsap-visual relative opacity-0 transform scale-95">
+              <!-- Main Container -->
+              <div
+                class="bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl p-8 shadow-2xl transform hover:scale-105 transition-transform duration-500"
+              >
+                <!-- App Preview -->
+                <div class="bg-white rounded-2xl p-6 mb-6 shadow-inner">
+                  <!-- App Header -->
+                  <div class="flex items-center gap-4 mb-6">
+                    <div
+                      class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center"
+                    >
+                      <i data-lucide="droplets" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <div>
+                      <h4 class="text-xl font-bold text-gray-900">alaganao</h4>
+                      <p class="text-sm text-gray-500">
+                        Prevenção Colaborativa
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- App Features Preview -->
+                  <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-blue-50 rounded-xl p-4 text-center">
+                      <div
+                        class="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center mx-auto mb-2"
+                      >
+                        <i data-lucide="bell" class="w-4 h-4 text-white"></i>
+                      </div>
+                      <span class="text-sm font-semibold text-gray-800"
+                        >Alertas IA</span
+                      >
+                    </div>
+                    <div class="bg-blue-50 rounded-xl p-4 text-center">
+                      <div
+                        class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center mx-auto mb-2"
+                      >
+                        <i data-lucide="users" class="w-4 h-4 text-white"></i>
+                      </div>
+                      <span class="text-sm font-semibold text-gray-800"
+                        >Rede Social</span
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tech Indicators -->
+                <div class="space-y-3">
+                  <div
+                    class="flex items-center gap-3 bg-white/20 rounded-xl p-3"
+                  >
+                    <div class="w-3 h-3 bg-green-400 rounded-full"></div>
+                    <span class="text-white font-medium text-sm"
+                      >Sistema Online</span
+                    >
+                  </div>
+                  <div
+                    class="flex items-center gap-3 bg-white/20 rounded-xl p-3"
+                  >
+                    <div class="w-3 h-3 bg-blue-400 rounded-full"></div>
+                    <span class="text-white font-medium text-sm"
+                      >Dados em Tempo Real</span
+                    >
+                  </div>
+                  <div
+                    class="flex items-center gap-3 bg-white/20 rounded-xl p-3"
+                  >
+                    <div class="w-3 h-3 bg-purple-400 rounded-full"></div>
+                    <span class="text-white font-medium text-sm"
+                      >IA Predictiva</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- O QUE É E COMO FUNCIONA -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 scroll-reveal">
+          <div
+            class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-700 text-sm font-semibold rounded-full mb-6"
+          >
+            <i data-lucide="info" class="w-4 h-4 mr-2"></i>
+            O QUE É E COMO FUNCIONA
+          </div>
+          <h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-6">
+            Sistema Inteligente de
+            <span
+              class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+              >Prevenção</span
+            >
+          </h2>
+          <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            Seu app é uma
+            <strong class="text-blue-600">plataforma colaborativa</strong> que
+            conecta comunidades inteiras em tempo real para prevenir, monitorar
+            e responder a enchentes. É como ter um
+            <strong class="text-purple-600">sistema de defesa civil</strong> na
+            palma da mão de cada cidadão.
+          </p>
+        </div>
+
+        <!-- Como Funciona na Prática -->
+        <div
+          class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 md:p-12 mb-16 scroll-reveal"
+        >
+          <h3 class="text-3xl font-bold text-gray-900 mb-8 text-center">
+            Como Funciona na Prática:
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center">
+              <div
+                class="w-20 h-20 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4"
+              >
+                <i data-lucide="user" class="w-10 h-10 text-white"></i>
+              </div>
+              <h4 class="text-xl font-bold text-gray-900 mb-2">
+                Cidadão relata
+              </h4>
+              <div class="flex items-center justify-center mb-2">
+                <div class="h-1 bg-blue-200 w-full"></div>
+                <i
+                  data-lucide="arrow-right"
+                  class="w-5 h-5 text-blue-500 mx-2"
+                ></i>
+              </div>
+              <p class="text-gray-600">App processa</p>
+            </div>
+
+            <div class="text-center">
+              <div
+                class="w-20 h-20 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4"
+              >
+                <i data-lucide="users" class="w-10 h-10 text-white"></i>
+              </div>
+              <h4 class="text-xl font-bold text-gray-900 mb-2">
+                Comunidade é alertada
+              </h4>
+              <div class="flex items-center justify-center mb-2">
+                <div class="h-1 bg-purple-200 w-full"></div>
+                <i
+                  data-lucide="arrow-right"
+                  class="w-5 h-5 text-purple-500 mx-2"
+                ></i>
+              </div>
+              <p class="text-gray-600">IA analiza padrões</p>
+            </div>
+
+            <div class="text-center">
+              <div
+                class="w-20 h-20 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4"
+              >
+                <i data-lucide="heart" class="w-10 h-10 text-white"></i>
+              </div>
+              <h4 class="text-xl font-bold text-gray-900 mb-2">
+                Vidas são salvas
+              </h4>
+              <p class="text-gray-600">Alertas automáticos salvam vidas</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUNCIONALIDADES REVOLUCIONÁRIAS -->
+    <section id="funcionalidades" class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 scroll-reveal">
+          <div
+            class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 text-sm font-semibold rounded-full mb-6"
+          >
+            <i data-lucide="rocket" class="w-4 h-4 mr-2"></i>
+            FUNCIONALIDADES REVOLUCIONÁRIAS
+          </div>
+          <h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-6">
+            Tecnologia que
+            <span
+              class="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
+              >Salva Vidas</span
+            >
+          </h2>
+        </div>
+
+        <!-- Grid de Funcionalidades -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+          <!-- Mapa 3D Inteligente -->
+          <div
+            class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 scroll-reveal"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6"
+            >
+              <i data-lucide="map" class="w-8 h-8 text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">
+              🗺️ MAPA 3D INTELIGENTE
+            </h3>
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
+                ></i>
+                <span>Visualização em tempo real de áreas alagadas</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
+                ></i>
+                <span>Mapbox 3D com edifícios e relevo real</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
+                ></i>
+                <span>Marcadores visuais por nível de perigo (🟢🟡🔴)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
+                ></i>
+                <span>Rotas de evacuação automáticas</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
+                ></i>
+                <span>Localização de abrigos e centros de evacuação</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Sistema de Relatórios -->
+          <div
+            class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 scroll-reveal"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6"
+            >
+              <i data-lucide="camera" class="w-8 h-8 text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">
+              📱 RELATÓRIOS COMUNITÁRIOS
+            </h3>
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
+                ></i>
+                <span>Fotos em tempo real de enchentes</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
+                ></i>
+                <span>Geolocalização automática do ponto exato</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
+                ></i>
+                <span>Níveis de severidade (Leve, Moderado, Crítico)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
+                ></i>
+                <span>Validação automática por IA</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Alertas Inteligentes -->
+          <div
+            class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 scroll-reveal"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-6"
+            >
+              <i data-lucide="bell" class="w-8 h-8 text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">
+              🚨 ALERTAS INTELIGENTES
+            </h3>
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
+                ></i>
+                <span>Notificações críticas que exigem ação imediata</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
+                ></i>
+                <span>3 níveis de urgência: Baixo, Normal, Crítico</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
+                ></i>
+                <span>Alertas por proximidade baseados na localização</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
+                ></i>
+                <span>Retry automático para garantir entrega</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Meteorologia Avançada -->
+          <div
+            class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 scroll-reveal"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center mb-6"
+            >
+              <i data-lucide="cloud-rain" class="w-8 h-8 text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">
+              🌤️ METEOROLOGIA AVANÇADA
+            </h3>
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
+                ></i>
+                <span>Integração com OpenWeatherMap (dados reais)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
+                ></i>
+                <span>Previsão de 7 dias com níveis de risco</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
+                ></i>
+                <span>Gráficos interativos de precipitação</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
+                ></i>
+                <span><strong>Precisão de 87.3%</strong> em predições</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Sistema de Doações PIX -->
+          <div
+            class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 scroll-reveal"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6"
+            >
+              <i data-lucide="heart-handshake" class="w-8 h-8 text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">
+              💰 SISTEMA DE DOAÇÕES PIX
+            </h3>
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
+                ></i>
+                <span>QR Code PIX gerado automaticamente</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
+                ></i>
+                <span>Valores pré-definidos ou personalizados</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
+                ></i>
+                <span>Transparência total no uso das doações</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
+                ></i>
+                <span>Compartilhamento via WhatsApp/Redes</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Dashboard Analytics -->
+          <div
+            class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 scroll-reveal"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6"
+            >
+              <i data-lucide="bar-chart-3" class="w-8 h-8 text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">
+              📊 DASHBOARD ANALYTICS
+            </h3>
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
+                ></i>
+                <span><strong>15.847</strong> usuários já cadastrados</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
+                ></i>
+                <span><strong>1.247</strong> alertas processados</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
+                ></i>
+                <span>KPIs em tempo real: usuários online, alertas ativos</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
+                ></i>
+                <span
+                  ><strong>99.7% uptime</strong>,
+                  <strong>234ms</strong> response time</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção do Problema -->
+    <section id="problema" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 scroll-reveal">
+          <div
+            class="inline-flex items-center px-4 py-2 bg-red-100 text-red-700 text-sm font-semibold rounded-full mb-6"
+          >
+            <i data-lucide="alert-triangle" class="w-4 h-4 mr-2"></i>
+            Problema Crítico
+          </div>
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Enchentes no <span class="text-red-600">Brasil</span>
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            As enchentes afetam milhões de brasileiros anualmente, causando
+            perdas humanas e materiais devastadoras.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <!-- Estatísticas -->
+          <div class="space-y-8">
+            <div class="bg-red-50 rounded-2xl p-8 scroll-reveal">
+              <div class="text-4xl font-black text-red-600 mb-2">
+                <span class="counter" data-target="8">0</span> milhões
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Pessoas Afetadas
+              </h3>
+              <p class="text-gray-600">
+                Brasileiros impactados por enchentes anualmente
+              </p>
+            </div>
+
+            <div class="bg-orange-50 rounded-2xl p-8 scroll-reveal">
+              <div class="text-4xl font-black text-orange-600 mb-2">
+                R$ <span class="counter" data-target="15">0</span> bi
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Prejuízos Anuais
+              </h3>
+              <p class="text-gray-600">Em perdas econômicas e infraestrutura</p>
+            </div>
+
+            <div class="bg-yellow-50 rounded-2xl p-8 scroll-reveal">
+              <div class="text-4xl font-black text-yellow-600 mb-2">
+                <span class="counter" data-target="45">0</span>%
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Cidades Vulneráveis
+              </h3>
+              <p class="text-gray-600">
+                Das cidades brasileiras em risco de enchentes
+              </p>
+            </div>
+          </div>
+
+          <!-- Problemas Identificados -->
+          <div class="space-y-6">
+            <div class="flex items-start space-x-4 scroll-reveal">
+              <div
+                class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0"
+              >
+                <i data-lucide="clock" class="w-6 h-6 text-red-600"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">
+                  Falta de Prevenção
+                </h3>
+                <p class="text-gray-600">
+                  Sistemas de alerta tardios e comunicação ineficiente entre
+                  autoridades e população.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4 scroll-reveal">
+              <div
+                class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0"
+              >
+                <i data-lucide="users-x" class="w-6 h-6 text-orange-600"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">
+                  Coordenação Limitada
+                </h3>
+                <p class="text-gray-600">
+                  Dificuldade na organização de ajuda humanitária e evacuações
+                  de emergência.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4 scroll-reveal">
+              <div
+                class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center flex-shrink-0"
+              >
+                <i data-lucide="database-x" class="w-6 h-6 text-yellow-600"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">
+                  Dados Fragmentados
+                </h3>
+                <p class="text-gray-600">
+                  Informações meteorológicas e hidrológicas espalhadas em
+                  diferentes órgãos.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4 scroll-reveal">
+              <div
+                class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0"
+              >
+                <i
+                  data-lucide="smartphone-x"
+                  class="w-6 h-6 text-purple-600"
+                ></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">
+                  Baixo Engajamento
+                </h3>
+                <p class="text-gray-600">
+                  População sem ferramentas adequadas para reportar riscos e
+                  pedir ajuda.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nossa Solução -->
+    <section
+      id="solucao"
+      class="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 scroll-reveal">
+          <div
+            class="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 text-sm font-semibold rounded-full mb-6"
+          >
+            <i data-lucide="lightbulb" class="w-4 h-4 mr-2"></i>
+            Nossa Solução
+          </div>
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Plataforma <span class="text-blue-600">alaganao</span>
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            O alaganao transforma vidas ao criar comunidades mais seguras,
+            reduzir tragédias e construir um futuro onde enchentes não
+            significam mais perdas devastadoras.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          <!-- Monitoramento Colaborativo -->
+          <div
+            class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 scroll-reveal"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6"
+            >
+              <i data-lucide="eye" class="w-8 h-8 text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">
+              Monitoramento Colaborativo
+            </h3>
+            <p class="text-gray-600 mb-6">
+              Transformamos cada cidadão em um guardião da comunidade, criando
+              uma rede humana que protege famílias e salva vidas através da
+              detecção precoce.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-center text-sm text-gray-600">
+                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                Reports em tempo real
+              </li>
+              <li class="flex items-center text-sm text-gray-600">
+                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                Geolocalização precisa
+              </li>
+              <li class="flex items-center text-sm text-gray-600">
+                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                Validação comunitária
+              </li>
+            </ul>
+          </div>
+
+          <!-- Alertas Inteligentes -->
+          <div
+            class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 scroll-reveal"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6"
+            >
+              <i data-lucide="brain" class="w-8 h-8 text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">
+              Alertas Inteligentes
+            </h3>
+            <p class="text-gray-600 mb-6">
+              Nossa inteligência artificial trabalha 24/7 para proteger você e
+              sua família, enviando alertas que chegam antes do perigo e salvam
+              vidas.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-center text-sm text-gray-600">
+                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                Predição por IA
+              </li>
+              <li class="flex items-center text-sm text-gray-600">
+                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                Alertas personalizados
+              </li>
+              <li class="flex items-center text-sm text-gray-600">
+                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                Múltiplos canais
+              </li>
+            </ul>
+          </div>
+
+          <!-- Coordenação de Ajuda -->
+          <div
+            class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 scroll-reveal"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center mb-6"
+            >
+              <i data-lucide="heart-handshake" class="w-8 h-8 text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">
+              Coordenação de Ajuda
+            </h3>
+            <p class="text-gray-600 mb-6">
+              Criamos uma rede solidária onde ninguém fica desamparado.
+              Conectamos corações dispostos a ajudar com famílias que precisam
+              de apoio.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-center text-sm text-gray-600">
+                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                Mapeamento de necessidades
+              </li>
+              <li class="flex items-center text-sm text-gray-600">
+                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                Rede de voluntários
+              </li>
+              <li class="flex items-center text-sm text-gray-600">
+                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                Logística otimizada
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Impacto Esperado -->
+        <div
+          class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-12 text-white text-center scroll-reveal"
+        >
+          <h3 class="text-3xl font-bold mb-6">Impacto Real na Sociedade</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <div class="text-4xl font-black mb-2">1000+</div>
+              <div class="text-lg">Vidas salvas anualmente</div>
+            </div>
+            <div>
+              <div class="text-4xl font-black mb-2">R$ 50mi</div>
+              <div class="text-lg">Economia em prejuízos</div>
+            </div>
+            <div>
+              <div class="text-4xl font-black mb-2">85%</div>
+              <div class="text-lg">Redução em desabrigados</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Como Funciona -->
+    <section id="como-funciona" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 scroll-reveal">
+          <div
+            class="inline-flex items-center px-4 py-2 bg-green-100 text-green-700 text-sm font-semibold rounded-full mb-6"
+          >
+            <i data-lucide="cog" class="w-4 h-4 mr-2"></i>
+            Como Funciona
+          </div>
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <span class="text-green-600">3 Passos</span> Simples
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Nossa plataforma funciona em um ciclo contínuo de detecção, análise
+            e mobilização comunitária.
+          </p>
+        </div>
+
+        <div class="relative">
+          <!-- Timeline Line -->
+          <div
+            class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 via-purple-500 to-green-500 rounded-full hidden lg:block"
+          ></div>
+
+          <!-- Steps -->
+          <div class="space-y-16">
+            <!-- Passo 1 -->
+            <div class="flex flex-col lg:flex-row items-center scroll-reveal">
+              <div class="lg:w-1/2 lg:pr-16">
+                <div class="bg-blue-50 rounded-3xl p-8">
+                  <div
+                    class="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mb-6"
+                  >
+                    <span class="text-2xl font-bold text-white">1</span>
+                  </div>
+                  <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                    Detecção Colaborativa
+                  </h3>
+                  <p class="text-gray-600 mb-6">
+                    Cidadãos usam o app para reportar condições climáticas
+                    suspeitas, níveis de água preocupantes e primeiros sinais de
+                    alagamento.
+                  </p>
+                  <ul class="space-y-2">
+                    <li class="flex items-center text-sm text-gray-600">
+                      <i
+                        data-lucide="smartphone"
+                        class="w-4 h-4 text-blue-500 mr-2"
+                      ></i>
+                      App móvel intuitivo
+                    </li>
+                    <li class="flex items-center text-sm text-gray-600">
+                      <i
+                        data-lucide="camera"
+                        class="w-4 h-4 text-blue-500 mr-2"
+                      ></i>
+                      Fotos e vídeos geolocalizados
+                    </li>
+                    <li class="flex items-center text-sm text-gray-600">
+                      <i
+                        data-lucide="map-pin"
+                        class="w-4 h-4 text-blue-500 mr-2"
+                      ></i>
+                      Localização automática
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="lg:w-1/2 lg:pl-16 mt-8 lg:mt-0">
+                <div class="relative">
+                  <div
+                    class="bg-gradient-to-br from-blue-500 to-cyan-500 rounded-3xl p-8 text-white"
+                  >
+                    <div class="grid grid-cols-1 gap-4">
+                      <div class="bg-white/20 rounded-xl p-4">
+                        <div class="flex items-center gap-3">
+                          <i data-lucide="cloud-rain" class="w-6 h-6"></i>
+                          <span class="font-semibold"
+                            >Chuva forte relatada</span
+                          >
+                        </div>
+                      </div>
+                      <div class="bg-white/20 rounded-xl p-4">
+                        <div class="flex items-center gap-3">
+                          <i data-lucide="waves" class="w-6 h-6"></i>
+                          <span class="font-semibold"
+                            >Nível do rio subindo</span
+                          >
+                        </div>
+                      </div>
+                      <div class="bg-white/20 rounded-xl p-4">
+                        <div class="flex items-center gap-3">
+                          <i data-lucide="alert-triangle" class="w-6 h-6"></i>
+                          <span class="font-semibold">Ruas alagando</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Passo 2 -->
+            <div
+              class="flex flex-col lg:flex-row-reverse items-center scroll-reveal"
+            >
+              <div class="lg:w-1/2 lg:pl-16">
+                <div class="bg-purple-50 rounded-3xl p-8">
+                  <div
+                    class="w-16 h-16 bg-purple-500 rounded-2xl flex items-center justify-center mb-6"
+                  >
+                    <span class="text-2xl font-bold text-white">2</span>
+                  </div>
+                  <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                    Análise Inteligente
+                  </h3>
+                  <p class="text-gray-600 mb-6">
+                    Nossa IA processa reports, dados meteorológicos e padrões
+                    históricos para gerar alertas precisos e acionáveis.
+                  </p>
+                  <ul class="space-y-2">
+                    <li class="flex items-center text-sm text-gray-600">
+                      <i
+                        data-lucide="brain"
+                        class="w-4 h-4 text-purple-500 mr-2"
+                      ></i>
+                      Machine Learning avançado
+                    </li>
+                    <li class="flex items-center text-sm text-gray-600">
+                      <i
+                        data-lucide="activity"
+                        class="w-4 h-4 text-purple-500 mr-2"
+                      ></i>
+                      Análise em tempo real
+                    </li>
+                    <li class="flex items-center text-sm text-gray-600">
+                      <i
+                        data-lucide="target"
+                        class="w-4 h-4 text-purple-500 mr-2"
+                      ></i>
+                      Alertas direcionados
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="lg:w-1/2 lg:pr-16 mt-8 lg:mt-0">
+                <div
+                  class="bg-gradient-to-br from-purple-500 to-pink-500 rounded-3xl p-8 text-white"
+                >
+                  <div class="text-center mb-6">
+                    <h4 class="text-xl font-bold mb-2">IA Processando...</h4>
+                    <div class="grid grid-cols-3 gap-4">
+                      <div class="bg-white/20 rounded-lg p-3">
+                        <i
+                          data-lucide="cloud-rain"
+                          class="w-6 h-6 mx-auto mb-1"
+                        ></i>
+                        <div class="text-xs">Meteorologia</div>
+                      </div>
+                      <div class="bg-white/20 rounded-lg p-3">
+                        <i
+                          data-lucide="database"
+                          class="w-6 h-6 mx-auto mb-1"
+                        ></i>
+                        <div class="text-xs">Histórico</div>
+                      </div>
+                      <div class="bg-white/20 rounded-lg p-3">
+                        <i data-lucide="users" class="w-6 h-6 mx-auto mb-1"></i>
+                        <div class="text-xs">Reports</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bg-red-500 rounded-xl p-4 text-center">
+                    <i
+                      data-lucide="alert-triangle"
+                      class="w-8 h-8 mx-auto mb-2"
+                    ></i>
+                    <div class="font-bold">ALERTA EMITIDO</div>
+                    <div class="text-sm opacity-90">Alto risco de enchente</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Passo 3 -->
+            <div class="flex flex-col lg:flex-row items-center scroll-reveal">
+              <div class="lg:w-1/2 lg:pr-16">
+                <div class="bg-green-50 rounded-3xl p-8">
+                  <div
+                    class="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mb-6"
+                  >
+                    <span class="text-2xl font-bold text-white">3</span>
+                  </div>
+                  <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                    Mobilização da Rede
+                  </h3>
+                  <p class="text-gray-600 mb-6">
+                    A comunidade se mobiliza automaticamente: alertas são
+                    enviados, ajuda é coordenada e recursos são direcionados
+                    onde mais precisam.
+                  </p>
+                  <ul class="space-y-2">
+                    <li class="flex items-center text-sm text-gray-600">
+                      <i
+                        data-lucide="bell"
+                        class="w-4 h-4 text-green-500 mr-2"
+                      ></i>
+                      Notificações push
+                    </li>
+                    <li class="flex items-center text-sm text-gray-600">
+                      <i
+                        data-lucide="heart-handshake"
+                        class="w-4 h-4 text-green-500 mr-2"
+                      ></i>
+                      Rede de voluntários
+                    </li>
+                    <li class="flex items-center text-sm text-gray-600">
+                      <i
+                        data-lucide="truck"
+                        class="w-4 h-4 text-green-500 mr-2"
+                      ></i>
+                      Logística de emergência
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="lg:w-1/2 lg:pl-16 mt-8 lg:mt-0">
+                <div
+                  class="bg-gradient-to-br from-green-500 to-emerald-500 rounded-3xl p-8 text-white"
+                >
+                  <div class="grid grid-cols-1 gap-4">
+                    <div class="bg-white/20 rounded-xl p-4">
+                      <div class="flex items-center justify-between">
+                        <span class="font-semibold"
+                          >📱 8.532 alertas enviados</span
+                        >
+                        <i data-lucide="check" class="w-5 h-5"></i>
+                      </div>
+                    </div>
+                    <div class="bg-white/20 rounded-xl p-4">
+                      <div class="flex items-center justify-between">
+                        <span class="font-semibold"
+                          >🚁 3 resgates mobilizados</span
+                        >
+                        <i data-lucide="check" class="w-5 h-5"></i>
+                      </div>
+                    </div>
+                    <div class="bg-white/20 rounded-xl p-4">
+                      <div class="flex items-center justify-between">
+                        <span class="font-semibold"
+                          >🤝 47 voluntários ativos</span
+                        >
+                        <i data-lucide="check" class="w-5 h-5"></i>
+                      </div>
+                    </div>
+                    <div class="bg-white/20 rounded-xl p-4">
+                      <div class="flex items-center justify-between">
+                        <span class="font-semibold"
+                          >🏠 12 abrigos disponíveis</span
+                        >
+                        <i data-lucide="check" class="w-5 h-5"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Vídeo Pitch -->
+    <section
+      id="pitch"
+      class="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 scroll-reveal">
+          <div
+            class="inline-flex items-center px-4 py-2 bg-white/10 text-white text-sm font-semibold rounded-full mb-6"
+          >
+            <i data-lucide="play" class="w-4 h-4 mr-2"></i>
+            Apresentação Acadêmica
+          </div>
+          <h2 class="text-4xl md:text-5xl font-bold mb-6">
+            Vídeo <span class="text-blue-400">Pitch</span>
+          </h2>
+          <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+            Descubra como o alaganao está revolucionando a prevenção de
+            enchentes, salvando vidas e criando comunidades mais resilientes no
+            Brasil.
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto scroll-reveal">
+          <div
+            class="relative bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl p-8 shadow-2xl"
+          >
+            <!-- Video Thumbnail -->
+            <div
+              class="relative group cursor-pointer"
+              onclick="openVideoModal()"
+            >
+              <div
+                class="aspect-video bg-black/20 rounded-2xl flex items-center justify-center backdrop-blur-sm border-2 border-white/20 hover:border-white/40 transition-all duration-300"
+              >
+                <div class="text-center">
+                  <div
+                    class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:bg-white/30 transition-all duration-300"
+                  >
+                    <i data-lucide="play" class="w-10 h-10 text-white ml-1"></i>
+                  </div>
+                  <h3 class="text-2xl font-bold mb-2">
+                    alaganao - Pitch Acadêmico
+                  </h3>
+                  <p class="text-blue-100">Duração: 8 minutos</p>
+                </div>
+              </div>
+              <!-- Play button overlay -->
+              <div
+                class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <div
+                  class="w-24 h-24 bg-white/90 rounded-full flex items-center justify-center"
+                >
+                  <i
+                    data-lucide="play"
+                    class="w-12 h-12 text-blue-600 ml-1"
+                  ></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Video Info -->
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="text-center">
+                <div
+                  class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-3"
+                >
+                  <i data-lucide="lightbulb" class="w-6 h-6"></i>
+                </div>
+                <h4 class="font-semibold mb-1">Impacto Social</h4>
+                <p class="text-sm text-blue-100">
+                  Como salvamos vidas e protegemos famílias
+                </p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-3"
+                >
+                  <i data-lucide="code" class="w-6 h-6"></i>
+                </div>
+                <h4 class="font-semibold mb-1">Benefícios Reais</h4>
+                <p class="text-sm text-blue-100">
+                  Redução de prejuízos e desabrigados
+                </p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-3"
+                >
+                  <i data-lucide="target" class="w-6 h-6"></i>
+                </div>
+                <h4 class="font-semibold mb-1">Futuro</h4>
+                <p class="text-sm text-blue-100">
+                  Comunidades resilientes e seguras
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal de Vídeo -->
+    <div id="videoModal" class="fixed inset-0 z-50 hidden">
+      <div
+        class="absolute inset-0 bg-black/80 backdrop-blur-sm"
+        onclick="closeVideoModal()"
+      ></div>
+      <div class="relative h-full flex items-center justify-center p-4">
+        <div class="relative w-full max-w-4xl aspect-video">
+          <iframe
+            id="videoFrame"
+            class="w-full h-full rounded-2xl"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+          <button
+            onclick="closeVideoModal()"
+            class="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
+          >
+            <i data-lucide="x" class="w-8 h-8"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Diferenciais -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 scroll-reveal">
+          <div
+            class="inline-flex items-center px-4 py-2 bg-purple-100 text-purple-700 text-sm font-semibold rounded-full mb-6"
+          >
+            <i data-lucide="star" class="w-4 h-4 mr-2"></i>
+            Nossos Diferenciais
+          </div>
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Por que <span class="text-purple-600">alaganao</span>?
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            O alaganao revoluciona a prevenção de enchentes focando no que
+            realmente importa: salvar vidas, proteger famílias e construir
+            comunidades mais fortes.
+          </p>
+        </div>
+
+        <!-- Comparação -->
+        <div
+          class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 md:p-12 scroll-reveal"
+        >
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Soluções Tradicionais -->
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">
+                Soluções Tradicionais
+              </h3>
+              <div class="space-y-4">
+                <div class="flex items-start space-x-4">
+                  <div
+                    class="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-1"
+                  >
+                    <i data-lucide="x" class="w-4 h-4 text-red-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900">Alertas Tardios</h4>
+                    <p class="text-gray-600 text-sm">
+                      Dependem apenas de sensores oficiais limitados
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                  <div
+                    class="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-1"
+                  >
+                    <i data-lucide="x" class="w-4 h-4 text-red-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900">
+                      Comunicação Fragmentada
+                    </h4>
+                    <p class="text-gray-600 text-sm">
+                      Informações dispersas entre órgãos
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                  <div
+                    class="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-1"
+                  >
+                    <i data-lucide="x" class="w-4 h-4 text-red-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900">Resposta Lenta</h4>
+                    <p class="text-gray-600 text-sm">
+                      Coordenação manual de emergências
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                  <div
+                    class="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-1"
+                  >
+                    <i data-lucide="x" class="w-4 h-4 text-red-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900">
+                      Baixo Engajamento
+                    </h4>
+                    <p class="text-gray-600 text-sm">
+                      População como receptora passiva
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Nossa Solução -->
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">
+                alaganao
+              </h3>
+              <div class="space-y-4">
+                <div class="flex items-start space-x-4">
+                  <div
+                    class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-1"
+                  >
+                    <i data-lucide="check" class="w-4 h-4 text-green-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900">
+                      Vidas Protegidas
+                    </h4>
+                    <p class="text-gray-600 text-sm">
+                      Alertas até 6h antes, tempo suficiente para salvar
+                      famílias
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                  <div
+                    class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-1"
+                  >
+                    <i data-lucide="check" class="w-4 h-4 text-green-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900">
+                      Prejuízos Evitados
+                    </h4>
+                    <p class="text-gray-600 text-sm">
+                      Economia de milhões em perdas materiais e infraestrutura
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                  <div
+                    class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-1"
+                  >
+                    <i data-lucide="check" class="w-4 h-4 text-green-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900">
+                      Resposta Humanitária
+                    </h4>
+                    <p class="text-gray-600 text-sm">
+                      Ajuda chegando rapidamente onde mais precisa
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                  <div
+                    class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-1"
+                  >
+                    <i data-lucide="check" class="w-4 h-4 text-green-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900">
+                      Comunidades Unidas
+                    </h4>
+                    <p class="text-gray-600 text-sm">
+                      Vizinhos cuidando uns dos outros em rede solidária
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trajetória do Projeto -->
+    <section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 scroll-reveal">
+          <div
+            class="inline-flex items-center px-4 py-2 bg-indigo-100 text-indigo-700 text-sm font-semibold rounded-full mb-6"
+          >
+            <i data-lucide="map" class="w-4 h-4 mr-2"></i>
+            Trajetória Acadêmica
+          </div>
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Jornada de <span class="text-indigo-600">Desenvolvimento</span>
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Do conceito inicial à implementação final, veja como o projeto
+            alaganao evoluiu através de pesquisa, planejamento e
+            desenvolvimento.
+          </p>
+        </div>
+
+        <!-- Timeline -->
+        <div class="relative">
+          <div class="space-y-8">
+            <!-- Fase 1: Ideação -->
+            <div class="flex items-start scroll-reveal">
+              <div
+                class="flex-shrink-0 w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold mr-8"
+              >
+                1
+              </div>
+              <div class="bg-white rounded-2xl p-8 shadow-lg flex-1">
+                <div class="flex items-center justify-between mb-4">
+                  <h3 class="text-2xl font-bold text-gray-900">
+                    Ideação e Pesquisa
+                  </h3>
+                  <span
+                    class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full"
+                    >4 semanas</span
+                  >
+                </div>
+                <p class="text-gray-600 mb-6">
+                  Identificação do problema das enchentes no Brasil, pesquisa de
+                  soluções existentes e definição da proposta de valor única.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div class="bg-blue-50 rounded-lg p-4">
+                    <i
+                      data-lucide="search"
+                      class="w-6 h-6 text-blue-600 mb-2"
+                    ></i>
+                    <h4 class="font-semibold text-gray-900 text-sm">
+                      Pesquisa de Mercado
+                    </h4>
+                  </div>
+                  <div class="bg-blue-50 rounded-lg p-4">
+                    <i
+                      data-lucide="users"
+                      class="w-6 h-6 text-blue-600 mb-2"
+                    ></i>
+                    <h4 class="font-semibold text-gray-900 text-sm">
+                      Análise de Usuários
+                    </h4>
+                  </div>
+                  <div class="bg-blue-50 rounded-lg p-4">
+                    <i
+                      data-lucide="lightbulb"
+                      class="w-6 h-6 text-blue-600 mb-2"
+                    ></i>
+                    <h4 class="font-semibold text-gray-900 text-sm">
+                      Conceituação
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fase 2: Planejamento -->
+            <div class="flex items-start scroll-reveal">
+              <div
+                class="flex-shrink-0 w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold mr-8"
+              >
+                2
+              </div>
+              <div class="bg-white rounded-2xl p-8 shadow-lg flex-1">
+                <div class="flex items-center justify-between mb-4">
+                  <h3 class="text-2xl font-bold text-gray-900">
+                    Planejamento e Design
+                  </h3>
+                  <span
+                    class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full"
+                    >6 semanas</span
+                  >
+                </div>
+                <p class="text-gray-600 mb-6">
+                  Definição da arquitetura técnica, design da interface do
+                  usuário e planejamento da estratégia de desenvolvimento.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div class="bg-purple-50 rounded-lg p-4">
+                    <i
+                      data-lucide="layout"
+                      class="w-6 h-6 text-purple-600 mb-2"
+                    ></i>
+                    <h4 class="font-semibold text-gray-900 text-sm">
+                      UI/UX Design
+                    </h4>
+                  </div>
+                  <div class="bg-purple-50 rounded-lg p-4">
+                    <i
+                      data-lucide="database"
+                      class="w-6 h-6 text-purple-600 mb-2"
+                    ></i>
+                    <h4 class="font-semibold text-gray-900 text-sm">
+                      Arquitetura de Dados
+                    </h4>
+                  </div>
+                  <div class="bg-purple-50 rounded-lg p-4">
+                    <i
+                      data-lucide="workflow"
+                      class="w-6 h-6 text-purple-600 mb-2"
+                    ></i>
+                    <h4 class="font-semibold text-gray-900 text-sm">
+                      Fluxos de Usuário
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fase 3: Desenvolvimento -->
+            <div class="flex items-start scroll-reveal">
+              <div
+                class="flex-shrink-0 w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mr-8"
+              >
+                3
+              </div>
+              <div class="bg-white rounded-2xl p-8 shadow-lg flex-1">
+                <div class="flex items-center justify-between mb-4">
+                  <h3 class="text-2xl font-bold text-gray-900">
+                    Desenvolvimento e Implementação
+                  </h3>
+                  <span
+                    class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full"
+                    >8 semanas</span
+                  >
+                </div>
+                <p class="text-gray-600 mb-6">
+                  Codificação da plataforma web, implementação das
+                  funcionalidades principais e criação do showcase digital.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div class="bg-green-50 rounded-lg p-4">
+                    <i
+                      data-lucide="code"
+                      class="w-6 h-6 text-green-600 mb-2"
+                    ></i>
+                    <h4 class="font-semibold text-gray-900 text-sm">
+                      Frontend Development
+                    </h4>
+                  </div>
+                  <div class="bg-green-50 rounded-lg p-4">
+                    <i
+                      data-lucide="zap"
+                      class="w-6 h-6 text-green-600 mb-2"
+                    ></i>
+                    <h4 class="font-semibold text-gray-900 text-sm">
+                      Animações GSAP
+                    </h4>
+                  </div>
+                  <div class="bg-green-50 rounded-lg p-4">
+                    <i
+                      data-lucide="smartphone"
+                      class="w-6 h-6 text-green-600 mb-2"
+                    ></i>
+                    <h4 class="font-semibold text-gray-900 text-sm">
+                      Design Responsivo
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACTO TRANSFORMADOR -->
+    <section
+      id="impacto"
+      class="py-20 bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 text-white"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 scroll-reveal">
+          <div
+            class="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm text-white text-sm font-semibold rounded-full mb-6"
+          >
+            <i data-lucide="zap" class="w-4 h-4 mr-2"></i>
+            IMPACTO TRANSFORMADOR
+          </div>
+          <h2 class="text-4xl md:text-6xl font-black mb-6">
+            Mudando
+            <span
+              class="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent"
+              >Vidas</span
+            >
+            e
+            <span
+              class="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent"
+              >Comunidades</span
+            >
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <!-- Para Cidadãos -->
+          <div
+            class="bg-white/10 backdrop-blur-sm rounded-3xl p-8 scroll-reveal"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-500 rounded-2xl flex items-center justify-center mb-6"
+            >
+              <i data-lucide="users" class="w-8 h-8 text-white"></i>
+            </div>
+            <h3 class="text-3xl font-bold mb-6">PARA CIDADÃOS:</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <span class="text-green-400 text-xl">✅</span>
+                <span
+                  ><strong>Segurança em tempo real</strong> - Saiba onde NÃO
+                  ir</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-green-400 text-xl">✅</span>
+                <span>Rotas seguras calculadas automaticamente</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-green-400 text-xl">✅</span>
+                <span>Localização de abrigos mais próximos</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-green-400 text-xl">✅</span>
+                <span>Alertas antecipados antes da enchente chegar</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-green-400 text-xl">✅</span>
+                <span>Comunicação direta com vizinhança</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Para Autoridades -->
+          <div
+            class="bg-white/10 backdrop-blur-sm rounded-3xl p-8 scroll-reveal"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-r from-purple-400 to-purple-500 rounded-2xl flex items-center justify-center mb-6"
+            >
+              <i data-lucide="shield" class="w-8 h-8 text-white"></i>
+            </div>
+            <h3 class="text-3xl font-bold mb-6">PARA AUTORIDADES:</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <span class="text-yellow-400 text-xl">🎯</span>
+                <span>Dados precisos coletados da população</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-yellow-400 text-xl">🎯</span>
+                <span
+                  ><strong>Resposta 10x mais rápida</strong> a emergências</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-yellow-400 text-xl">🎯</span>
+                <span>Identificação automática de áreas críticas</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-yellow-400 text-xl">🎯</span>
+                <span>Otimização de recursos de emergência</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-yellow-400 text-xl">🎯</span>
+                <span>Coordenação eficiente de equipes de resgate</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Para Organizações -->
+          <div
+            class="bg-white/10 backdrop-blur-sm rounded-3xl p-8 scroll-reveal"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-2xl flex items-center justify-center mb-6"
+            >
+              <i data-lucide="building" class="w-8 h-8 text-white"></i>
+            </div>
+            <h3 class="text-3xl font-bold mb-6">PARA ORGANIZAÇÕES:</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <span class="text-blue-400 text-xl">💡</span>
+                <span>Direcionamento inteligente de doações</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-blue-400 text-xl">💡</span>
+                <span>Coordenação de voluntários por região</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-blue-400 text-xl">💡</span>
+                <span>Transparência total no uso de recursos</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-blue-400 text-xl">💡</span>
+                <span>Métricas de impacto mensuráveis</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-blue-400 text-xl">💡</span>
+                <span>Comunicação direta com comunidades afetadas</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECNOLOGIA DE PONTA -->
+    <section id="tecnologia" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 scroll-reveal">
+          <div
+            class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-cyan-100 to-blue-100 text-cyan-700 text-sm font-semibold rounded-full mb-6"
+          >
+            <i data-lucide="cpu" class="w-4 h-4 mr-2"></i>
+            TECNOLOGIA DE PONTA
+          </div>
+          <h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-6">
+            Performance que
+            <span
+              class="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent"
+              >Impressiona</span
+            >
+          </h2>
+        </div>
+
+        <!-- Stats de Performance -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div class="text-center scroll-reveal">
+            <div
+              class="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4"
+            >
+              <i data-lucide="trending-up" class="w-10 h-10 text-white"></i>
+            </div>
+            <div class="text-3xl font-black text-green-600 mb-1">99.7%</div>
+            <div class="text-gray-600 font-medium">Uptime</div>
+            <div class="text-sm text-gray-500">Sistema sempre disponível</div>
+          </div>
+
+          <div class="text-center scroll-reveal">
+            <div
+              class="w-20 h-20 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4"
+            >
+              <i data-lucide="zap" class="w-10 h-10 text-white"></i>
+            </div>
+            <div class="text-3xl font-black text-blue-600 mb-1">234ms</div>
+            <div class="text-gray-600 font-medium">Response Time</div>
+            <div class="text-sm text-gray-500">Tempo de resposta médio</div>
+          </div>
+
+          <div class="text-center scroll-reveal">
+            <div
+              class="w-20 h-20 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4"
+            >
+              <i data-lucide="target" class="w-10 h-10 text-white"></i>
+            </div>
+            <div class="text-3xl font-black text-purple-600 mb-1">87.3%</div>
+            <div class="text-gray-600 font-medium">Precisão IA</div>
+            <div class="text-sm text-gray-500">Previsões meteorológicas</div>
+          </div>
+
+          <div class="text-center scroll-reveal">
+            <div
+              class="w-20 h-20 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-4"
+            >
+              <i data-lucide="refresh-cw" class="w-10 h-10 text-white"></i>
+            </div>
+            <div class="text-3xl font-black text-orange-600 mb-1">10s</div>
+            <div class="text-gray-600 font-medium">Sync Rate</div>
+            <div class="text-sm text-gray-500">Atualizações em tempo real</div>
+          </div>
+        </div>
+
+        <!-- Funcionalidades Avançadas -->
+        <div
+          class="bg-gradient-to-r from-gray-50 to-blue-50 rounded-3xl p-8 md:p-12 scroll-reveal"
+        >
+          <h3 class="text-3xl font-bold text-gray-900 mb-8 text-center">
+            ⚡ FUNCIONALIDADES AVANÇADAS
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="flex items-center gap-4 bg-white rounded-xl p-4">
+              <div
+                class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center"
+              >
+                <i data-lucide="refresh-cw" class="w-6 h-6 text-white"></i>
+              </div>
+              <div>
+                <div class="font-bold text-gray-900">🔄 Dados Dinâmicos</div>
+                <div class="text-sm text-gray-600">
+                  Atualizações a cada 10 segundos
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 bg-white rounded-xl p-4">
+              <div
+                class="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center"
+              >
+                <i data-lucide="map-pin" class="w-6 h-6 text-white"></i>
+              </div>
+              <div>
+                <div class="font-bold text-gray-900">📍 Geofencing</div>
+                <div class="text-sm text-gray-600">
+                  Alertas por zona geográfica
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 bg-white rounded-xl p-4">
+              <div
+                class="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center"
+              >
+                <i data-lucide="brain" class="w-6 h-6 text-white"></i>
+              </div>
+              <div>
+                <div class="font-bold text-gray-900">🤖 IA Predictiva</div>
+                <div class="text-sm text-gray-600">
+                  Machine learning para previsões
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 bg-white rounded-xl p-4">
+              <div
+                class="w-12 h-12 bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center"
+              >
+                <i data-lucide="wifi" class="w-6 h-6 text-white"></i>
+              </div>
+              <div>
+                <div class="font-bold text-gray-900">🌐 Tempo Real</div>
+                <div class="text-sm text-gray-600">
+                  WebSocket para sincronização instantânea
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 bg-white rounded-xl p-4">
+              <div
+                class="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl flex items-center justify-center"
+              >
+                <i data-lucide="wifi-off" class="w-6 h-6 text-white"></i>
+              </div>
+              <div>
+                <div class="font-bold text-gray-900">📱 Modo Offline</div>
+                <div class="text-sm text-gray-600">
+                  Funciona mesmo sem internet
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 bg-white rounded-xl p-4">
+              <div
+                class="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-xl flex items-center justify-center"
+              >
+                <i data-lucide="shield" class="w-6 h-6 text-white"></i>
+              </div>
+              <div>
+                <div class="font-bold text-gray-900">🔒 Segurança</div>
+                <div class="text-sm text-gray-600">
+                  Dados criptografados e protegidos
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFERENCIAIS ÚNICOS -->
+    <section
+      id="diferenciais"
+      class="py-20 bg-gradient-to-br from-emerald-50 to-teal-50"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 scroll-reveal">
+          <div
+            class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-100 to-teal-100 text-emerald-700 text-sm font-semibold rounded-full mb-6"
+          >
+            <i data-lucide="award" class="w-4 h-4 mr-2"></i>
+            DIFERENCIAIS ÚNICOS
+          </div>
+          <h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-6">
+            Por que somos
+            <span
+              class="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent"
+              >Únicos</span
+            >
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <!-- Lista de Diferenciais -->
+          <div class="space-y-8 scroll-reveal">
+            <div class="bg-white rounded-3xl p-8 shadow-lg">
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center flex-shrink-0"
+                >
+                  <span class="text-white font-bold text-xl">🏆</span>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-gray-900 mb-2">
+                    1. PRIMEIRO NO BRASIL
+                  </h3>
+                  <p class="text-gray-600 mb-2">
+                    Único app que combina relatórios comunitários + IA + alertas
+                    + doações
+                  </p>
+                  <p class="text-sm text-emerald-600 font-medium">
+                    Tecnologia brasileira desenvolvida para realidade nacional
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-8 shadow-lg">
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center flex-shrink-0"
+                >
+                  <span class="text-white font-bold text-xl">💚</span>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-gray-900 mb-2">
+                    2. GRATUITO E ACESSÍVEL
+                  </h3>
+                  <p class="text-gray-600 mb-2">
+                    100% gratuito para toda população
+                  </p>
+                  <p class="text-sm text-green-600 font-medium">
+                    Funciona em qualquer celular (Android/iOS) • Interface
+                    simples para todas as idades
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-8 shadow-lg">
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center flex-shrink-0"
+                >
+                  <span class="text-white font-bold text-xl">🤝</span>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-gray-900 mb-2">
+                    3. COLABORATIVO E SOCIAL
+                  </h3>
+                  <p class="text-gray-600 mb-2">
+                    Construído pela comunidade para a comunidade
+                  </p>
+                  <p class="text-sm text-blue-600 font-medium">
+                    Cada usuário é um sensor de monitoramento • Rede social com
+                    propósito social
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-8 shadow-lg">
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center flex-shrink-0"
+                >
+                  <span class="text-white font-bold text-xl">📊</span>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-gray-900 mb-2">
+                    4. IMPACTO MENSURÁVEL
+                  </h3>
+                  <ul class="text-gray-600 space-y-1 text-sm">
+                    <li>
+                      • <strong>Vidas salvas:</strong> Alertas antecipados
+                      previnem mortes
+                    </li>
+                    <li>
+                      • <strong>Prejuízos evitados:</strong> Evacuações
+                      planejadas reduzem perdas
+                    </li>
+                    <li>
+                      • <strong>Resposta acelerada:</strong> Autoridades agem
+                      10x mais rápido
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual de Impacto -->
+          <div class="scroll-reveal">
+            <div
+              class="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-3xl p-8 text-white"
+            >
+              <h3 class="text-3xl font-bold mb-8">📈 RESULTADOS ESPERADOS</h3>
+
+              <div class="space-y-8">
+                <div>
+                  <h4 class="text-xl font-bold mb-4 text-emerald-100">
+                    EM 6 MESES:
+                  </h4>
+                  <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white/20 rounded-xl p-4 text-center">
+                      <div class="text-2xl font-black mb-1">100K</div>
+                      <div class="text-sm">usuários ativos</div>
+                    </div>
+                    <div class="bg-white/20 rounded-xl p-4 text-center">
+                      <div class="text-2xl font-black mb-1">500</div>
+                      <div class="text-sm">cidades cobertas</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="text-xl font-bold mb-4 text-emerald-100">
+                    EM 1 ANO:
+                  </h4>
+                  <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white/20 rounded-xl p-4 text-center">
+                      <div class="text-2xl font-black mb-1">1M</div>
+                      <div class="text-sm">usuários</div>
+                    </div>
+                    <div class="bg-white/20 rounded-xl p-4 text-center">
+                      <div class="text-2xl font-black mb-1">100%</div>
+                      <div class="text-sm">cobertura nacional</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="text-xl font-bold mb-4 text-emerald-100">
+                    EM 2 ANOS:
+                  </h4>
+                  <div class="bg-white/20 rounded-xl p-6 text-center">
+                    <div class="text-3xl font-black mb-2">🌟</div>
+                    <div class="text-lg font-bold">Expansão Internacional</div>
+                    <div class="text-sm">
+                      Plataforma modelo para outros países
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal de Vídeo -->
+    <div
+      id="video-modal"
+      class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden"
+    >
+      <div class="relative bg-white rounded-3xl p-8 max-w-4xl w-full mx-4">
+        <button
+          id="close-modal"
+          class="absolute top-4 right-4 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors"
+        >
+          <i data-lucide="x" class="w-6 h-6 text-gray-600"></i>
+        </button>
+
+        <div class="aspect-video rounded-2xl overflow-hidden bg-gray-100">
+          <iframe
+            id="video-frame"
+            class="w-full h-full"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <div class="mt-6 text-center">
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">
+            Demonstração do alaganao
+          </h3>
+          <p class="text-gray-600">
+            Veja como nossa plataforma está revolucionando a prevenção de
+            enchentes no Brasil
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-16 bg-gray-900 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <div class="flex items-center justify-center gap-3 mb-6">
+            <div
+              class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center"
+            >
+              <i data-lucide="droplets" class="w-6 h-6 text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold">alaganao</h3>
+          </div>
+
+          <p class="text-gray-400 max-w-2xl mx-auto mb-8">
+            Projeto acadêmico desenvolvido para demonstrar soluções inovadoras
+            na prevenção e resposta a enchentes através de tecnologia
+            colaborativa e inteligência artificial.
+          </p>
+
+          <div class="border-t border-gray-800 pt-8">
+            <p class="text-gray-500 text-sm">
+              © 2024 alaganao. Projeto acadêmico desenvolvido com dedicação e
+              inovação.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- GSAP Animations -->
+    <script>
+      // Registrar plugins
+      gsap.registerPlugin(ScrollTrigger, TextPlugin);
+
+      // Timeline principal
+      const tl = gsap.timeline();
+
+      // Animações do hero
+      tl.to(".gsap-badge", {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+      })
+        .to(
+          ".gsap-title",
+          {
+            opacity: 1,
+            duration: 0.6,
+            ease: "power2.out",
+          },
+          "-=0.4"
+        )
+        .to(
+          ".gsap-title-line",
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power3.out",
+          },
+          "-=0.4"
+        )
+        .to(
+          ".gsap-subtitle",
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+          },
+          "-=0.2"
+        )
+        .to(
+          ".gsap-feature-card",
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power2.out",
+          },
+          "-=0.4"
+        )
+        .to(
+          ".gsap-ctas",
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+          },
+          "-=0.4"
+        )
+        .to(
+          ".gsap-visual",
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 1,
+            ease: "power2.out",
+          },
+          "-=0.8"
+        );
+
+      // Animações de scroll
+      gsap.utils.toArray(".scroll-reveal").forEach((element) => {
+        gsap.fromTo(
+          element,
+          {
+            opacity: 0,
+            y: 50,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: element,
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+    </script>
+
+    <!-- Main JavaScript -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
