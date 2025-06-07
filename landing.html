@@ -315,7 +315,7 @@
                 Explorar Funcionalidades
               </a>
               <button
-                data-video-url="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                data-video-url="https://www.youtube.com/embed/V0zXcinRCuc"
                 class="inline-flex items-center justify-center px-8 py-4 bg-white text-gray-900 font-bold rounded-2xl border-2 border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 <i data-lucide="play" class="w-5 h-5 mr-2 text-blue-600"></i>
@@ -1380,32 +1380,119 @@
               class="relative group cursor-pointer"
               onclick="openVideoModal()"
             >
+              <!-- Video Cover Image -->
               <div
-                class="aspect-video bg-black/20 rounded-2xl flex items-center justify-center backdrop-blur-sm border-2 border-white/20 hover:border-white/40 transition-all duration-300"
+                class="aspect-video rounded-2xl overflow-hidden border-2 border-white/20 hover:border-white/40 transition-all duration-300 relative"
               >
-                <div class="text-center">
-                  <div
-                    class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:bg-white/30 transition-all duration-300"
-                  >
-                    <i data-lucide="play" class="w-10 h-10 text-white ml-1"></i>
+                <!-- 
+                  PARA USAR A IMAGEM REAL DA CAPA:
+                  1. Salve a imagem da capa como 'pitch-cover.jpg' na pasta 'images'
+                  2. Substitua o div abaixo por:
+                  <img src="images/pitch-cover.jpg" alt="alaganao Pitch" class="w-full h-full object-cover">
+                -->
+
+                <!-- 
+                  VERSÃO COM IMAGEM REAL (descomente e substitua o placeholder quando tiver a imagem):
+                  <img src="images/pitch-cover.jpg" alt="alaganao Pitch Cover" class="w-full h-full object-cover" />
+                -->
+
+                <!-- Placeholder para a imagem de capa - você deve adicionar a imagem aqui -->
+                <div
+                  class="w-full h-full bg-gradient-to-br from-slate-800 to-blue-900 flex items-center justify-center relative"
+                >
+                  <!-- Conteúdo da capa simulando a imagem -->
+                  <div class="text-center text-white relative z-10">
+                    <div class="mb-8">
+                      <h1
+                        class="text-4xl md:text-6xl font-black text-transparent bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text mb-4"
+                      >
+                        ALAGANÃ
+                      </h1>
+                      <p class="text-lg text-blue-200 font-semibold">
+                        TECNOLOGIA QUE SALVA
+                      </p>
+                    </div>
+
+                    <!-- Ícones das funcionalidades -->
+                    <div class="grid grid-cols-5 gap-4 max-w-2xl mx-auto mb-6">
+                      <div class="text-center">
+                        <div
+                          class="w-12 h-12 mx-auto mb-2 bg-white/10 rounded-lg flex items-center justify-center"
+                        >
+                          <i data-lucide="users" class="w-6 h-6"></i>
+                        </div>
+                        <p class="text-xs">Monitoramento</p>
+                      </div>
+                      <div class="text-center">
+                        <div
+                          class="w-12 h-12 mx-auto mb-2 bg-white/10 rounded-lg flex items-center justify-center"
+                        >
+                          <i data-lucide="bell" class="w-6 h-6"></i>
+                        </div>
+                        <p class="text-xs">Notificações</p>
+                      </div>
+                      <div class="text-center">
+                        <div
+                          class="w-12 h-12 mx-auto mb-2 bg-white/10 rounded-lg flex items-center justify-center"
+                        >
+                          <i data-lucide="map-pin" class="w-6 h-6"></i>
+                        </div>
+                        <p class="text-xs">Geolocalização</p>
+                      </div>
+                      <div class="text-center">
+                        <div
+                          class="w-12 h-12 mx-auto mb-2 bg-white/10 rounded-lg flex items-center justify-center"
+                        >
+                          <i data-lucide="bar-chart" class="w-6 h-6"></i>
+                        </div>
+                        <p class="text-xs">Dashboard</p>
+                      </div>
+                      <div class="text-center">
+                        <div
+                          class="w-12 h-12 mx-auto mb-2 bg-white/10 rounded-lg flex items-center justify-center"
+                        >
+                          <i data-lucide="heart" class="w-6 h-6"></i>
+                        </div>
+                        <p class="text-xs">Doações</p>
+                      </div>
+                    </div>
                   </div>
-                  <h3 class="text-2xl font-bold mb-2">
-                    alaganao - Pitch Acadêmico
-                  </h3>
-                  <p class="text-blue-100">Duração: 8 minutos</p>
+
+                  <!-- Imagem de fundo simulando enchente -->
+                  <div
+                    class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-blue-800/60 to-transparent"
+                  ></div>
                 </div>
+
+                <!-- Overlay escuro para melhor contraste -->
+                <div
+                  class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"
+                ></div>
               </div>
+
               <!-- Play button overlay -->
               <div
-                class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                class="absolute inset-0 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity duration-300"
               >
                 <div
-                  class="w-24 h-24 bg-white/90 rounded-full flex items-center justify-center"
+                  class="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300"
                 >
                   <i
                     data-lucide="play"
-                    class="w-12 h-12 text-blue-600 ml-1"
+                    class="w-10 h-10 text-blue-600 ml-1"
                   ></i>
+                </div>
+              </div>
+
+              <!-- Video Info Overlay -->
+              <div class="absolute bottom-4 left-4 right-4">
+                <div class="bg-black/50 backdrop-blur-sm rounded-xl p-4">
+                  <h3 class="text-lg font-bold text-white mb-1">
+                    alaganao - Pitch Acadêmico
+                  </h3>
+                  <p class="text-blue-200 text-sm">
+                    Duração: 8 minutos • Tecnologia que salva vidas
+                  </p>
                 </div>
               </div>
             </div>
@@ -1450,30 +1537,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Modal de Vídeo -->
-    <div id="videoModal" class="fixed inset-0 z-50 hidden">
-      <div
-        class="absolute inset-0 bg-black/80 backdrop-blur-sm"
-        onclick="closeVideoModal()"
-      ></div>
-      <div class="relative h-full flex items-center justify-center p-4">
-        <div class="relative w-full max-w-4xl aspect-video">
-          <iframe
-            id="videoFrame"
-            class="w-full h-full rounded-2xl"
-            frameborder="0"
-            allowfullscreen
-          ></iframe>
-          <button
-            onclick="closeVideoModal()"
-            class="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
-          >
-            <i data-lucide="x" class="w-8 h-8"></i>
-          </button>
-        </div>
-      </div>
-    </div>
 
     <!-- Diferenciais -->
     <section class="py-20 bg-white">
@@ -2308,17 +2371,22 @@
     <!-- Modal de Vídeo -->
     <div
       id="video-modal"
-      class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden"
+      class="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-[9999] hidden p-4"
     >
-      <div class="relative bg-white rounded-3xl p-8 max-w-4xl w-full mx-4">
+      <div
+        class="relative bg-white rounded-3xl p-6 md:p-8 max-w-6xl w-full shadow-2xl"
+      >
         <button
           id="close-modal"
-          class="absolute top-4 right-4 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors"
+          onclick="closeVideoModal()"
+          class="absolute -top-12 right-0 w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors text-white"
         >
-          <i data-lucide="x" class="w-6 h-6 text-gray-600"></i>
+          <i data-lucide="x" class="w-6 h-6"></i>
         </button>
 
-        <div class="aspect-video rounded-2xl overflow-hidden bg-gray-100">
+        <div
+          class="aspect-video rounded-2xl overflow-hidden bg-gray-100 shadow-xl"
+        >
           <iframe
             id="video-frame"
             class="w-full h-full"
@@ -2329,11 +2397,11 @@
         </div>
 
         <div class="mt-6 text-center">
-          <h3 class="text-2xl font-bold text-gray-900 mb-2">
-            Demonstração do alaganao
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+            alaganao - Pitch Acadêmico
           </h3>
-          <p class="text-gray-600">
-            Veja como nossa plataforma está revolucionando a prevenção de
+          <p class="text-gray-600 text-lg">
+            Descubra como nossa plataforma está revolucionando a prevenção de
             enchentes no Brasil
           </p>
         </div>

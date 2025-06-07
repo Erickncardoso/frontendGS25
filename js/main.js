@@ -363,29 +363,30 @@ function initMobileMenu() {
 // ===== MODAL DE VÍDEO =====
 function initVideoModal() {
   window.openVideoModal = function () {
-    const modal = document.getElementById("videoModal");
-    const iframe = document.getElementById("videoFrame");
+    const modal = document.getElementById("video-modal");
+    const iframe = document.getElementById("video-frame");
 
     if (!modal || !iframe) return;
 
-    // Substitua pela URL do seu vídeo
-    iframe.src = "https://www.youtube.com/embed/dQw4w9WgXcQ";
+    // URL do vídeo pitch
+    iframe.src = "https://www.youtube.com/embed/V0zXcinRCuc";
+
+    // Mostrar modal
+    modal.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
 
     // Animação de entrada do modal
-    gsap.set(modal, { display: "flex" });
     gsap.fromTo(modal, { opacity: 0 }, { opacity: 1, duration: 0.3 });
     gsap.fromTo(
       modal.querySelector(".relative"),
       { scale: 0.8, opacity: 0 },
       { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.7)" }
     );
-
-    document.body.style.overflow = "hidden";
   };
 
   window.closeVideoModal = function () {
-    const modal = document.getElementById("videoModal");
-    const iframe = document.getElementById("videoFrame");
+    const modal = document.getElementById("video-modal");
+    const iframe = document.getElementById("video-frame");
 
     if (!modal || !iframe) return;
 
@@ -394,7 +395,7 @@ function initVideoModal() {
       opacity: 0,
       duration: 0.3,
       onComplete: () => {
-        modal.style.display = "none";
+        modal.classList.add("hidden");
         iframe.src = "";
         document.body.style.overflow = "auto";
       },
@@ -409,10 +410,10 @@ function initVideoModal() {
   });
 
   // Fechar modal clicando fora
-  const modal = document.getElementById("videoModal");
+  const modal = document.getElementById("video-modal");
   if (modal) {
     modal.addEventListener("click", (e) => {
-      if (e.target === e.currentTarget) {
+      if (e.target === modal) {
         closeVideoModal();
       }
     });
@@ -521,176 +522,180 @@ if (window.performance && console.time) {
 }
 
 // Inicialização dos ícones Lucide
-document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar ícones Lucide
-    lucide.createIcons();
+document.addEventListener("DOMContentLoaded", function () {
+  // Inicializar ícones Lucide
+  lucide.createIcons();
 
-    // Mobile Menu Toggle
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-    }
+  // Mobile Menu Toggle
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
 
-    // Smooth scrolling para links de navegação
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-                // Fechar menu mobile se estiver aberto
-                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
-            }
-        });
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
     });
+  }
 
-    // Counter Animation
-    function animateCounter(element) {
-        const target = parseInt(element.getAttribute('data-target'));
-        const increment = target / 100;
-        let current = 0;
-        
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                current = target;
-                clearInterval(timer);
-            }
-            element.textContent = Math.floor(current);
-        }, 20);
-    }
-
-    // Intersection Observer para counters
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const counter = entry.target.querySelector('.counter');
-                if (counter && !counter.classList.contains('animated')) {
-                    counter.classList.add('animated');
-                    animateCounter(counter);
-                }
-            }
+  // Smooth scrolling para links de navegação
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
         });
-    }, { threshold: 0.5 });
-
-    // Observar elementos com counters
-    document.querySelectorAll('[data-target]').forEach(counter => {
-        counterObserver.observe(counter.closest('div'));
-    });
-
-    // Modal de Vídeo (se existir)
-    const videoModal = document.getElementById('video-modal');
-    const closeModal = document.getElementById('close-modal');
-    const videoFrame = document.getElementById('video-frame');
-    
-    if (videoModal && closeModal && videoFrame) {
-        // Botões que abrem o modal
-        document.querySelectorAll('[data-video-url]').forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                const videoUrl = button.getAttribute('data-video-url');
-                videoFrame.src = videoUrl;
-                videoModal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        // Fechar modal
-        function closeVideoModal() {
-            videoModal.classList.add('hidden');
-            videoFrame.src = '';
-            document.body.style.overflow = 'auto';
+        // Fechar menu mobile se estiver aberto
+        if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
+          mobileMenu.classList.add("hidden");
         }
+      }
+    });
+  });
 
-        closeModal.addEventListener('click', closeVideoModal);
-        
-        // Fechar modal clicando fora do vídeo
-        videoModal.addEventListener('click', (e) => {
-            if (e.target === videoModal) {
-                closeVideoModal();
-            }
-        });
+  // Counter Animation
+  function animateCounter(element) {
+    const target = parseInt(element.getAttribute("data-target"));
+    const increment = target / 100;
+    let current = 0;
 
-        // Fechar modal com ESC
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !videoModal.classList.contains('hidden')) {
-                closeVideoModal();
-            }
-        });
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      element.textContent = Math.floor(current);
+    }, 20);
+  }
+
+  // Intersection Observer para counters
+  const counterObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const counter = entry.target.querySelector(".counter");
+          if (counter && !counter.classList.contains("animated")) {
+            counter.classList.add("animated");
+            animateCounter(counter);
+          }
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  // Observar elementos com counters
+  document.querySelectorAll("[data-target]").forEach((counter) => {
+    counterObserver.observe(counter.closest("div"));
+  });
+
+  // Modal de Vídeo (se existir)
+  const videoModal = document.getElementById("video-modal");
+  const closeModal = document.getElementById("close-modal");
+  const videoFrame = document.getElementById("video-frame");
+
+  if (videoModal && closeModal && videoFrame) {
+    // Botões que abrem o modal
+    document.querySelectorAll("[data-video-url]").forEach((button) => {
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        const videoUrl = button.getAttribute("data-video-url");
+        videoFrame.src = videoUrl;
+        videoModal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      });
+    });
+
+    // Fechar modal
+    function closeVideoModal() {
+      videoModal.classList.add("hidden");
+      videoFrame.src = "";
+      document.body.style.overflow = "auto";
     }
 
-    // Barra de progresso de leitura
-    const progressBar = document.querySelector('.reading-progress');
-    if (progressBar) {
-        window.addEventListener('scroll', () => {
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.documentElement.scrollHeight - windowHeight;
-            const scrollTop = window.pageYOffset;
-            const progress = (scrollTop / documentHeight) * 100;
-            
-            progressBar.style.width = progress + '%';
-        });
-    }
+    closeModal.addEventListener("click", closeVideoModal);
 
-    // Lazy loading para imagens (se existirem)
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    if (img.dataset.src) {
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy');
-                        imageObserver.unobserve(img);
-                    }
-                }
-            });
-        });
+    // Fechar modal clicando fora do vídeo
+    videoModal.addEventListener("click", (e) => {
+      if (e.target === videoModal) {
+        closeVideoModal();
+      }
+    });
 
-        document.querySelectorAll('img[data-src]').forEach(img => {
-            imageObserver.observe(img);
-        });
-    }
+    // Fechar modal com ESC
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !videoModal.classList.contains("hidden")) {
+        closeVideoModal();
+      }
+    });
+  }
 
-    // Highlight da navegação baseado na seção atual
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
+  // Barra de progresso de leitura
+  const progressBar = document.querySelector(".reading-progress");
+  if (progressBar) {
+    window.addEventListener("scroll", () => {
+      const windowHeight = window.innerHeight;
+      const documentHeight =
+        document.documentElement.scrollHeight - windowHeight;
+      const scrollTop = window.pageYOffset;
+      const progress = (scrollTop / documentHeight) * 100;
 
-    function highlightNavigation() {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100;
-            if (window.pageYOffset >= sectionTop) {
-                current = section.getAttribute('id');
-            }
-        });
+      progressBar.style.width = progress + "%";
+    });
+  }
 
-        navLinks.forEach(link => {
-            link.classList.remove('text-blue-600');
-            link.classList.add('text-gray-700');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.remove('text-gray-700');
-                link.classList.add('text-blue-600');
-            }
-        });
-    }
+  // Lazy loading para imagens (se existirem)
+  if ("IntersectionObserver" in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          if (img.dataset.src) {
+            img.src = img.dataset.src;
+            img.classList.remove("lazy");
+            imageObserver.unobserve(img);
+          }
+        }
+      });
+    });
 
-    window.addEventListener('scroll', highlightNavigation);
+    document.querySelectorAll("img[data-src]").forEach((img) => {
+      imageObserver.observe(img);
+    });
+  }
 
-    console.log('🎉 alaganao Landing Page carregada com sucesso!');
+  // Highlight da navegação baseado na seção atual
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  function highlightNavigation() {
+    let current = "";
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 100;
+      if (window.pageYOffset >= sectionTop) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.remove("text-blue-600");
+      link.classList.add("text-gray-700");
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.remove("text-gray-700");
+        link.classList.add("text-blue-600");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", highlightNavigation);
+
+  console.log("🎉 alaganao Landing Page carregada com sucesso!");
 });
 
 // CSS para barra de progresso
-const style = document.createElement('style');
+const style = document.createElement("style");
 style.textContent = `
 .reading-progress {
     position: fixed;
