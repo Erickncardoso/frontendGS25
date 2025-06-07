@@ -3,6 +3,13 @@
 **Transformando cada cidadão em um guardião da sua comunidade através de tecnologia inteligente para salvar vidas e construir cidades mais resilientes.**
 
 ---
+## 👥 Equipe de Desenvolvimento
+
+- **Erick Cardoso** - RM 560440
+- **João Victor** - RM 560439
+- **Davi Daparé** - RM 560721
+
+---
 
 ## 🎯 **Sobre o Projeto**
 
