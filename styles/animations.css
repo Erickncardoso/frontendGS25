@@ -1,0 +1,231 @@
+/* =============================================
+   ANIMATIONS.CSS - Todas as Animações CSS
+   ============================================= */
+
+/* Keyframes para animações customizadas */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+  }
+}
+
+@keyframes bounce-soft {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Classes de animação */
+.floating-shape {
+  animation: float 8s ease-in-out infinite;
+}
+
+.floating-shape:nth-child(2) {
+  animation-delay: -2s;
+  animation-duration: 6s;
+}
+
+.floating-shape:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 10s;
+}
+
+/* Efeito de texto gradiente animado */
+.gradient-text {
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6, #06b6d4, #10b981);
+  background-size: 300% 300%;
+  animation: gradient-shift 8s ease infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animações de entrada */
+.animate-fade-in {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+.animate-bounce-soft {
+  animation: bounce-soft 2s ease-in-out infinite;
+}
+
+/* Animação de loading */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animações de hover suaves */
+.animate-hover-up {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.animate-hover-up:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.animate-hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.animate-hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Animações de elementos flutuantes */
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-delayed {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: -3s;
+}
+
+/* Animação de pulso suave */
+.pulse-gentle {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Animações responsivas */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .floating-shape,
+  .gradient-text,
+  .animate-bounce-soft {
+    animation: none !important;
+  }
+}
+
+/* Performance optimization */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
